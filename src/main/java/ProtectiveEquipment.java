@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 
 public class ProtectiveEquipment {
@@ -17,6 +18,7 @@ public class ProtectiveEquipment {
     // Конструктор с параметрами
     public ProtectiveEquipment(int id, String name, String type, String status, LocalDate inspectionDate,
                                LocalDate expirationDate, String location, String comment) {
+        if (id > 0)
         this.id = id;
         this.name = name;
         this.type = type;
@@ -33,7 +35,11 @@ public class ProtectiveEquipment {
     }
 
     public void setId(int id) {
+        if (id >0)
         this.id = id;
+        else{
+            System.out.println("id не может быть отрицательным");
+        }
     }
 
     public String getName() {

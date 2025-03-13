@@ -1,27 +1,39 @@
 import java.time.LocalDate;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        // Создаем объект DatabaseHandler
+        DatabaseHandler dbHandler = new DatabaseHandler();
+
         // Создаем объект ProtectiveEquipment
         ProtectiveEquipment gloves = new ProtectiveEquipment(
-                1,
+                0, // ID будет автоматически сгенерирован базой данных
                 "Диэлектрические перчатки",
                 "Перчатки",
                 "Годно",
+                LocalDate.of(2023, 10, 1),
                 LocalDate.of(2024, 10, 1),
-                LocalDate.of(2025, 10, 1),
                 "Склад №1",
                 "Используются для работы с напряжением до 1000 В"
         );
 
-        // Выводим информацию о средстве
-        System.out.println(gloves);
+        // Добавляем запись в базу данных
+        dbHandler.addEquipment(gloves);
 
-        // Проверяем, истек ли срок годности
-        if (gloves.isExpired()) {
-            System.out.println("Срок годности истек!");
-        } else {
-            System.out.println("Срок годности в порядке.");
+
+
+        // Получаем все записи из базы данных
+        List<ProtectiveEquipment> equipmentList = dbHandler.getAllEquipment();
+        for (ProtectiveEquipment equipment : equipmentList) {
+            System.out.println(equipment);
         }
+
+        // Обновляем запись
+        gloves.setStatus("Не годно");
+        dbHandler.updateEquipment(gloves);
+
+        // Удаляем запись
+        dbHandler.deleteEquipment(gloves.getId());
     }
 }
