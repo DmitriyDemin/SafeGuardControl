@@ -1,6 +1,9 @@
+import lombok.Data;
+
 import java.time.LocalDate;
 import java.util.List;
 
+@Data
 public class Main {
     public static void main(String[] args) {
         // Создаем объект DatabaseHandler
@@ -21,17 +24,15 @@ public class Main {
         // Добавляем запись в базу данных
         dbHandler.addEquipment(gloves);
 
-
+        // Обновляем запись
+        gloves.setStatus("Не годно");
+        dbHandler.updateEquipment(gloves);
 
         // Получаем все записи из базы данных
         List<ProtectiveEquipment> equipmentList = dbHandler.getAllEquipment();
         for (ProtectiveEquipment equipment : equipmentList) {
             System.out.println(equipment);
         }
-
-        // Обновляем запись
-        gloves.setStatus("Не годно");
-        dbHandler.updateEquipment(gloves);
 
         // Удаляем запись
         dbHandler.deleteEquipment(gloves.getId());
