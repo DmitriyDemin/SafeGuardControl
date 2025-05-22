@@ -481,6 +481,7 @@ private static final String PASSWORD = "your_password";
 
 Теперь мы можем использовать класс DatabaseHandler для работы с базой данных. Пример использования:
 
+```java
 import java.time.LocalDate;
 
 public class Main {
@@ -517,15 +518,13 @@ DatabaseHandler dbHandler = new DatabaseHandler();
         dbHandler.deleteEquipment(gloves.getId());
     }
 }
+```
+
 
 Дополнительные улучшения
-
 Обработка исключений: Добавьте более детальную обработку исключений (например, логирование).
-
 Пул соединений: Используйте пул соединений (например, HikariCP) для повышения производительности.
-
 Транзакции: Реализуйте поддержку транзакций для операций, которые должны выполняться атомарно.
-
 Логирование: Добавьте логирование операций (например, с помощью Log4j или SLF4J).
 
 
@@ -533,13 +532,9 @@ DatabaseHandler dbHandler = new DatabaseHandler();
 1. Усовершенствование класса ProtectiveEquipment
 
 Добавим валидацию и бизнес-логику:
-
 java
-
 Copy
-
 Download
-
 public class ProtectiveEquipment {
 // ... (существующие поля) ...
 
