@@ -532,6 +532,29 @@ DatabaseHandler dbHandler = new DatabaseHandler();
 1. Усовершенствование класса ProtectiveEquipment
 
 Добавим валидацию и бизнес-логику:
+````java
+java
+Copy
+Download
+public class ProtectiveEquipment {
+// ... (существующие поля) ...
+
+    // Валидация при установке срока годности
+    public void setExpirationDate(LocalDate expirationDate) {
+        if (expirationDate.isBefore(LocalDate.now())) {
+            throw new IllegalArgumentException("Срок годности не может быть в прошлом");
+        }
+        this.expirationDate = expirationDate;
+    }
+
+    // Проверка необходимости внеочередной проверки
+    public boolean needsInspection() {
+        return status.equals("На проверке") || 
+               inspectionDate.isBefore(LocalDate.now().minusMonths(3));
+    }
+}
+````
+
 java
 Copy
 Download
