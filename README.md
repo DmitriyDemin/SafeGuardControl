@@ -533,9 +533,7 @@ DatabaseHandler dbHandler = new DatabaseHandler();
 
 Добавим валидацию и бизнес-логику:
 ````java
-java
-Copy
-Download
+
 public class ProtectiveEquipment {
 // ... (существующие поля) ...
 
@@ -555,9 +553,7 @@ public class ProtectiveEquipment {
 }
 ````
 
-java
-Copy
-Download
+```java
 public class ProtectiveEquipment {
 // ... (существующие поля) ...
 
@@ -575,6 +571,8 @@ public class ProtectiveEquipment {
                inspectionDate.isBefore(LocalDate.now().minusMonths(3));
     }
 }
+```
+
 
 2. Работа с базой данных: улучшения
 
@@ -597,13 +595,7 @@ Run
 </dependency>
 
 Обновите DatabaseHandler:
-
-java
-
-Copy
-
-Download
-
+```java
 private static final HikariDataSource dataSource;
 
 static {
@@ -613,15 +605,9 @@ config.setUsername(USER);
 config.setPassword(PASSWORD);
 dataSource = new HikariDataSource(config);
 }
-
+```
 Транзакции для операций
-
-java
-
-Copy
-
-Download
-
+```java
 public void updateEquipmentWithTransaction(ProtectiveEquipment equipment) throws SQLException {
 try (Connection connection = dataSource.getConnection()) {
 connection.setAutoCommit(false);
@@ -635,6 +621,8 @@ throw e;
 }
 }
 }
+```
+
 
 3. Логирование (Log4j2)
 
