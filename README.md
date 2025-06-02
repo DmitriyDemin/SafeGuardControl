@@ -649,7 +649,7 @@ java
 Copy
 
 Download
-
+```java
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -665,6 +665,8 @@ private static final Logger logger = LogManager.getLogger(DatabaseHandler.class)
         }
     }
 }
+
+```
 
 4. REST API (Spring Boot)
 
