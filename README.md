@@ -677,7 +677,7 @@ java
 Copy
 
 Download
-
+```java
 @RestController
 @RequestMapping("/api/equipment")
 public class EquipmentController {
@@ -695,6 +695,8 @@ private EquipmentService service;
         return ResponseEntity.ok("Средство добавлено");
     }
 }
+```
+
 
 5. Графический интерфейс (JavaFX)
 
