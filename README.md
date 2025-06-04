@@ -707,8 +707,8 @@ java
 Copy
 
 Download
-
-public class MainView extends Application {
+````java
+ublic class MainView extends Application {
 @Override
 public void start(Stage stage) {
 TableView<ProtectiveEquipment> table = new TableView<>();
@@ -727,6 +727,8 @@ TableView<ProtectiveEquipment> table = new TableView<>();
         stage.show();
     }
 }
+````
+p
 
 6. Дополнительные функции
 
