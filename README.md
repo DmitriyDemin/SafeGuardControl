@@ -734,12 +734,7 @@ p
 
 Экспорт в Excel (Apache POI)
 
-java
-
-Copy
-
-Download
-
+````java
 public void exportToExcel(List<ProtectiveEquipment> items, String filePath) throws IOException {
 Workbook workbook = new XSSFWorkbook();
 Sheet sheet = workbook.createSheet("СИЗ");
@@ -760,6 +755,8 @@ Sheet sheet = workbook.createSheet("СИЗ");
     workbook.write(new FileOutputStream(filePath));
     workbook.close();
 }
+````
+
 
 Напоминания о проверках
 
