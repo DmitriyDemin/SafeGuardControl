@@ -580,19 +580,15 @@ public class ProtectiveEquipment {
 
 Добавьте в pom.xml:
 
-xml
-
-Copy
-
-Download
 
 Run
-
+```xml
 <dependency>
     <groupId>com.zaxxer</groupId>
     <artifactId>HikariCP</artifactId>
     <version>5.0.1</version>
 </dependency>
+```
 
 Обновите DatabaseHandler:
 ```java
@@ -765,12 +761,14 @@ java
 Copy
 
 Download
-
+```java
 public List<ProtectiveEquipment> getExpiringSoon(int days) {
 return getAllEquipment().stream()
 .filter(e -> e.getExpirationDate().isBefore(LocalDate.now().plusDays(days)))
 .collect(Collectors.toList());
 }
+```
+
 
 Стек технологий
 
@@ -825,7 +823,7 @@ java
 Copy
 
 Download
-
+````java
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -885,6 +883,8 @@ private List<ProtectiveEquipment> assignedEquipment; // Закрепленные
         return String.format("Employee[id=%d, name=%s, position=%s]", id, fullName, position);
     }
 }
+````
+
 
 2. Обновленная таблица в БД
 
