@@ -941,12 +941,7 @@ private LocalDate returnDate;
 
 Добавим методы для работы с работниками и выдачей:
 
-java
-
-Copy
-
-Download
-
+```java
 public class DatabaseHandler {
 // ... (существующие методы) ...
 
@@ -985,7 +980,7 @@ public class DatabaseHandler {
         }
     }
 }
-
+```
 5. Пример использования
 
 java
