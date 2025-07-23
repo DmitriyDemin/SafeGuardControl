@@ -982,13 +982,7 @@ public class DatabaseHandler {
 }
 ```
 5. Пример использования
-
-java
-
-Copy
-
-Download
-
+```java
 public class Main {
 public static void main(String[] args) {
 DatabaseHandler db = new DatabaseHandler();
@@ -1008,17 +1002,34 @@ DatabaseHandler db = new DatabaseHandler();
         System.out.println("СИЗ выданы работнику: " + emp.getFullName());
     }
 }
+```
+```java
+public class Main {
+public static void main(String[] args) {
+DatabaseHandler db = new DatabaseHandler();
+
+        // Создаем работника
+        Employee emp = new Employee(0, "Иванов И.И.", "Электрик", "Цех №1", LocalDate.now());
+        db.addEmployee(emp);
+
+        // Находим СИЗ
+        ProtectiveEquipment gloves = db.getAllEquipment().stream()
+                .filter(e -> e.getName().contains("перчатки"))
+                .findFirst()
+                .orElseThrow();
+
+        // Выдаем СИЗ
+        db.assignEquipment(emp.getId(), gloves.getId());
+        System.out.println("СИЗ выданы работнику: " + emp.getFullName());
+    }
+}
+```
+
 
 6. Валидация при выдаче
 
 Добавим проверки в метод assignEquipment:
-
-java
-
-Copy
-
-Download
-
+```java
 public void assignEquipment(int employeeId, int equipmentId) throws SQLException {
 // Проверяем, что средство не выдано другому работнику
 String checkSql = "SELECT * FROM equipment_assignment WHERE equipment_id = ? AND return_date IS NULL";
@@ -1033,7 +1044,7 @@ throw new IllegalStateException("Средство уже выдано друго
 
     // ... остальная логика выдачи ...
 }
-
+```
 7. Отчеты
 
 Метод для получения текущих выдач:
