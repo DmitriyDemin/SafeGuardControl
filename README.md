@@ -1049,12 +1049,7 @@ throw new IllegalStateException("Средство уже выдано друго
 
 Метод для получения текущих выдач:
 
-java
-
-Copy
-
-Download
-
+```java
 public List<AssignmentRecord> getCurrentAssignments() {
 List<AssignmentRecord> records = new ArrayList<>();
 String sql = "SELECT e.*, p.name as eq_name FROM equipment_assignment a " +
@@ -1075,6 +1070,8 @@ String sql = "SELECT e.*, p.name as eq_name FROM equipment_assignment a " +
     }
     return records;
 }
+
+```
 
 Дальнейшее развитие
 
