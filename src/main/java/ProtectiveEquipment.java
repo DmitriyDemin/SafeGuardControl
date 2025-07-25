@@ -10,6 +10,7 @@ public class ProtectiveEquipment {
     private LocalDate expirationDate; // Срок годности
     private String location; // Место хранения
     private String comment; // Комментарии
+    private String VoltageLevel; // уровень напряжение до или выше, будет нужно дальше
 
     // Конструктор по умолчанию
     public ProtectiveEquipment() {
