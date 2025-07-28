@@ -18,7 +18,7 @@ public class ProtectiveEquipment {
 
     // Конструктор с параметрами
     public ProtectiveEquipment(int id, String name, String type, String status, LocalDate inspectionDate,
-                               LocalDate expirationDate, String location, String comment) {
+                               LocalDate expirationDate, String location, String comment, String voltage) {
         if (id > 0)
         this.id = id;
         this.name = name;
@@ -28,6 +28,7 @@ public class ProtectiveEquipment {
         this.expirationDate = expirationDate;
         this.location = location;
         this.comment = comment;
+        this.VoltageLevel = voltage;
     }
 
     // Геттеры и сеттеры
@@ -116,6 +117,7 @@ public class ProtectiveEquipment {
                 ", expirationDate=" + expirationDate +
                 ", location='" + location + '\'' +
                 ", comment='" + comment + '\'' +
+                ", voltage = '" + VoltageLevel +'\'' +
                 '}';
     }
 }
