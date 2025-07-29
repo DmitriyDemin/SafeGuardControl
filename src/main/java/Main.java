@@ -2,6 +2,7 @@ import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Scanner;
 
 @Data
 public class Main {
@@ -36,6 +37,13 @@ public class Main {
         }
 
         // Удаляем запись
-        dbHandler.deleteEquipment(gloves.getId());
+        System.out.println("для удаления сиз из базы данных введите его ID");
+        Scanner scanner = new Scanner(System.in);
+        int idToDelete = scanner.nextInt();
+        dbHandler.deleteEquipment(idToDelete);
+        for (ProtectiveEquipment equipment : equipmentList) {
+            System.out.println(equipment);
+        }
+
     }
 }
