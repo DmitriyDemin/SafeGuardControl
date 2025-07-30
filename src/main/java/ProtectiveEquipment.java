@@ -100,6 +100,14 @@ public class ProtectiveEquipment {
         this.comment = comment;
     }
 
+    public String getVoltageLevel() {
+        return VoltageLevel;
+    }
+
+    public void setVoltageLevel(String voltageLevel) {
+        VoltageLevel = voltageLevel;
+    }
+
     // Метод для проверки, истек ли срок годности
     public boolean isExpired() {
         return LocalDate.now().isAfter(expirationDate);

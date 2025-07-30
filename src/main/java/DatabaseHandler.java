@@ -15,8 +15,8 @@ public class DatabaseHandler {
 
     // Метод для добавления записи в таблицу
     public void addEquipment(ProtectiveEquipment equipment) {
-        String query = "INSERT INTO protective_equipment (name, type, status, inspection_date, expiration_date, location, comment) " +
-                "VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO protective_equipment (name, type, status, inspection_date, expiration_date, location, comment, VoltageLevel) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         try (Connection connection = getConnection();
              PreparedStatement stmt = connection.prepareStatement(query)) {
             stmt.setString(1, equipment.getName());
@@ -26,6 +26,7 @@ public class DatabaseHandler {
             stmt.setDate(5, Date.valueOf(equipment.getExpirationDate()));
             stmt.setString(6, equipment.getLocation());
             stmt.setString(7, equipment.getComment());
+            stmt.setString(8, equipment.getVoltageLevel());
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -49,6 +50,7 @@ public class DatabaseHandler {
                 equipment.setExpirationDate(rs.getDate("expiration_date").toLocalDate());
                 equipment.setLocation(rs.getString("location"));
                 equipment.setComment(rs.getString("comment"));
+                equipment.setVoltageLevel(rs.getString("VoltageLevel"));
                 equipmentList.add(equipment);
             }
         } catch (SQLException e) {
@@ -59,7 +61,7 @@ public class DatabaseHandler {
 
     // Метод для обновления записи
     public void updateEquipment(ProtectiveEquipment equipment) {
-        String query = "UPDATE protective_equipment SET name=?, type=?, status=?, inspection_date=?, expiration_date=?, location=?, comment=? " +
+        String query = "UPDATE protective_equipment SET name=?, type=?, status=?, inspection_date=?, expiration_date=?, location=?, comment=?, VoltageLevel=? " +
                 "WHERE id=?";
         try (Connection connection = getConnection();
              PreparedStatement stmt = connection.prepareStatement(query)) {
@@ -71,6 +73,7 @@ public class DatabaseHandler {
             stmt.setString(6, equipment.getLocation());
             stmt.setString(7, equipment.getComment());
             stmt.setInt(8, equipment.getId());
+            stmt.setString(9, equipment.getVoltageLevel());
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
