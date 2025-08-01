@@ -91,4 +91,5 @@ public class DatabaseHandler {
             e.printStackTrace();
         }
     }
-}Коментарий от Степана
+}
+//Комментарий от Степана
