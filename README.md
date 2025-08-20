@@ -85,7 +85,7 @@ private Connection connection;
 5. Реализация пользовательского интерфейса
 
 Если вы используете JavaFX, создайте интерфейс для добавления, редактирования и просмотра данных. Пример:
-
+```java
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -119,6 +119,8 @@ Button addButton = new Button("Добавить");
         launch(args);
     }
 }
+```
+
 
 6. Тестирование
 
