@@ -37,7 +37,7 @@ public class Main {
         }
 
         // Удаляем запись
-        System.out.println("для удаления сиз из базы данных введите его ID");
+        System.out.println("для удаления сиз из базы данных введите его ID номеру");
         Scanner scanner = new Scanner(System.in);
         int idToDelete = scanner.nextInt();
         dbHandler.deleteEquipment(idToDelete);
@@ -48,4 +48,3 @@ public class Main {
     }
 }
 
-xfdfрапрапр
