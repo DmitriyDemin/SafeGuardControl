@@ -25,17 +25,14 @@ public class Main {
 
         // Добавляем запись в базу данных
         dbHandler.addEquipment(gloves);
-
         // Обновляем запись
         gloves.setStatus("Не годно");
         dbHandler.updateEquipment(gloves);
-
         // Получаем все записи из базы данных
         List<ProtectiveEquipment> equipmentList = dbHandler.getAllEquipment();
         for (ProtectiveEquipment equipment : equipmentList) {
             System.out.println(equipment);
         }
-
         // Удаляем запись
         System.out.println("для удаления сиз из базы данных введите его ID номеру");
         Scanner scanner = new Scanner(System.in);
@@ -44,7 +41,6 @@ public class Main {
         for (ProtectiveEquipment equipment : equipmentList) {
             System.out.println(equipment);
         }
-
     }
 }
 
