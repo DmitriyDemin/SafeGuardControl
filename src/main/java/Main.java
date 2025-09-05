@@ -9,7 +9,6 @@ public class Main {
     public static void main(String[] args) {
         // Создаем объект DatabaseHandler
         DatabaseHandler dbHandler = new DatabaseHandler();
-
         // Создаем объект ProtectiveEquipment
         ProtectiveEquipment gloves = new ProtectiveEquipment(
                 0, // ID будет автоматически сгенерирован базой данных
@@ -22,7 +21,6 @@ public class Main {
                 "Используются для работы с напряжением до 1000 В",
                 "до 1000 В"
         );
-
         // Добавляем запись в базу данных
         dbHandler.addEquipment(gloves);
         // Обновляем запись
