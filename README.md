@@ -280,7 +280,6 @@ private String comment; // Комментарии
 
 ```java
 import java.time.LocalDate;
-
 public class Main {
 public static void main(String[] args) {
 // Создаем объект ProtectiveEquipment
@@ -297,7 +296,6 @@ LocalDate.of(2024, 10, 1),
 
         // Выводим информацию о средстве
         System.out.println(gloves);
-
         // Проверяем, истек ли срок годности
         if (gloves.isExpired()) {
             System.out.println("Срок годности истек!");
