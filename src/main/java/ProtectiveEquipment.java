@@ -15,7 +15,6 @@ public class ProtectiveEquipment {
     // Конструктор по умолчанию
     public ProtectiveEquipment() {
     }
-
     // Конструктор с параметрами
     public ProtectiveEquipment(int id, String name, String type, String status, LocalDate inspectionDate,
                                LocalDate expirationDate, String location, String comment, String voltage) {
@@ -30,7 +29,6 @@ public class ProtectiveEquipment {
         this.comment = comment;
         this.VoltageLevel = voltage;
     }
-
     // Геттеры и сеттеры
     public int getId() {
         return id;
